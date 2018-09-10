@@ -26,7 +26,7 @@ function print(): void {
 }
 
 function rotateText(msg: string, dt: number) {
-  setInterval(() => doRotate(msg), 1000);
+  setInterval(() => doRotate(this.msg), 1000);
 }
 
 function doRotate(msg) {
