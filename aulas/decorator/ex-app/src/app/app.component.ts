@@ -24,7 +24,7 @@ export class AppComponent  implements OnInit {
   }
 
   rotateText(msg: string, dt: number) {
-    setInterval(() => this.doRotate(msg), 1000);
+    setInterval(() => this.doRotate(msg), dt);
   }
 
   doRotate(msg) {
