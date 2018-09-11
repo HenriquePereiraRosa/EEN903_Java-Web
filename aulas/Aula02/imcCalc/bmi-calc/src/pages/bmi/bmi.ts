@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { BmiProvider } from './../../providers/bmi/bmi';
+import { Component, Injectable } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
@@ -13,13 +14,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-bmi',
   templateUrl: 'bmi.html',
 })
+@Injectable()
 export class BmiPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  height: number;
+  weight: number;
+  result: number;
+
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    private bmiProvider: BmiProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad BmiPage');
   }
 
+  calcBMI(): void {
+    this.result = this.bmiProvider.doCalcBMI(this.height, this.weight);
+  }
 }

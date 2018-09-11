@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>BMI</ion-title>
   </ion-navbar>
 
@@ -14,5 +14,22 @@
 
 
 <ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      Input Data
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Height(m):</ion-label>
+        <ion-input [(ngModel)]="height"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Weight(kg):</ion-label>
+        <ion-input [(ngModel)]="weight"></ion-input>
+      </ion-item>
+      <button ion-button (click)="calcBMI()">Calculate</button>
+    </ion-card-content>
+  </ion-card>
+  <h3>Your BMI is: {{result}}</h3>
 
 </ion-content>
