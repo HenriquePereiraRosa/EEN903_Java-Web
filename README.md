@@ -1,6 +1,10 @@
 # EEN903_Java-Web
 
 
+##Dica para Execução:
+- Abrir pasta no VS Code;
+- Rodar comando "ng serve";
+
 Alunos:
 
 -Henrique Pereira Rosa  		    11.02741-0
