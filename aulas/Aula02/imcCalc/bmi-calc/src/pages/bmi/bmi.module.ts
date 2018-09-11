@@ -1,3 +1,4 @@
+import { BmiProvider } from './../../providers/bmi/bmi';
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { BmiPage } from './bmi';
@@ -8,6 +9,7 @@ import { BmiPage } from './bmi';
   ],
   imports: [
     IonicPageModule.forChild(BmiPage),
+    BmiProvider
   ],
 })
 export class BmiPageModule {}

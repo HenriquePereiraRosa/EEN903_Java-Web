@@ -13,8 +13,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 @Component({
   selector: 'page-bmi',
   templateUrl: 'bmi.html',
+  providers: [BmiProvider]
 })
-@Injectable()
+
 export class BmiPage {
 
   height: number;
