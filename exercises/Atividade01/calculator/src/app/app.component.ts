@@ -1,4 +1,6 @@
+import { CalcModule } from './calc/calc.module';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
@@ -9,9 +11,11 @@ export class AppComponent  implements OnInit {
   title = 'Exercícios';
 
   msg: string;
+  calc: CalcModule;
 
   constructor() {
     this.msg = 'Hello World!';
+    this.calc = new CalcModule();
   }
 
   ngOnInit() {
