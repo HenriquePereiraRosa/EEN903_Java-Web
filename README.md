@@ -5,12 +5,13 @@
 - Abrir pasta no VS Code;
 - Rodar comando "ng serve";
 
-Alunos:
 
-- Henrique Pereira Rosa___________ 11.02741-0
+### Alunos:
+
+- Henrique Pereira Rosa____________ 11.02741-0
 
 - Amanda Viviane da Costa Fabri___ 12.02859-2
 
-- Bruno Veiga_____________________ 13.04502-4
+- Bruno Veiga______________________ 13.04502-4
 
-- Gabriel Cabral Paiva____________ 15.95033-6
+- Gabriel Cabral Paiva_____________ 15.95033-6
