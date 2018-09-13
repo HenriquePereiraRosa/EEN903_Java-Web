@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { summaryFileName } from '@angular/compiler/src/aot/util';
+import { isNumber } from 'util';
 
 @NgModule({
   imports: [
@@ -10,69 +11,79 @@ import { summaryFileName } from '@angular/compiler/src/aot/util';
 })
 export class CalcModule {
 
-  stack: number[];
+  let stack: number[];
 
   constructor() {
     this.stack = [];
   }
 
-  add(num: number) {
-    this.stack.push(num);
-  }
-
-  removeLast() {
-    this.stack.pop();
-  }
-
-  doCalc(operator: string): number {
+  processRPN(operator: string): number {
+    let aux: string;
+    let array: string[];
+    let lastIndex: number = 0;
     let result: number;
 
-    if (this.stack.length > 0) {
-      switch (operator) {
-        case '+': {
-          result = this.sum();
-          break;
-        }
-        case '-': {
-          result = this.sub();
-          break;
-        }
-        case '*': {
-          result = this.mult();
-          break;
-        }
-        case '/': {
-          result = this.div();
-          break;
-        }
+    for (let i = 0; i < operator.length; i++) {
+      array.push(operator.charAt(i));
+    }
 
-        default: {
-          console.log('Operação não suportada.');
+    for (const element of array) {
+      if (element === ' ') {
+          this.stack.push(parseInt(operator.substring(lastIndex, (element - 1)));
+      } else {
+        if (this.stack.length > 1) {
+          switch (element) {
+            case '+': {
+              result = this.sum();
+              this.stack.push(result);
+              break;
+            }
+            case '-': {
+              result = this.sub();
+              this.stack.push(result);
+              break;
+            }
+            case '*': {
+              result = this.mult();
+              this.stack.push(result);
+              break;
+            }
+            case '/': {
+              result = this.sub();
+              this.stack.push(result);
+              break;
+            }
+            default: {
+              console.log('Operação não suportada');
+              break;
+            }
+          }
         }
       }
 
-    } else {
-      console.log('Stack Empty...');
     }
-
     return result;
   }
 
+  stackAdd(num: number) {
+    this.stack.push(num);
+  }
+
+  stackRemove() {
+    this.stack.pop();
+  }
+
   sum(): number {
-    this.stack.forEach(() => this.stack.pop());
     return this.stack.pop() + this.stack.pop();
   }
 
   sub(): number {
-    this.stack.forEach(() => this.stack.pop());
     return this.stack.pop() - this.stack.pop();
   }
 
   mult(): number {
-    this.stack.forEach(() => this.stack.pop());
     return this.stack.pop() * this.stack.pop();
   }
-
 
   div(): number {
     const number1 = this.stack.pop();
