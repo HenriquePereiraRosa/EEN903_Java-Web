@@ -14,7 +14,7 @@ export class AppComponent  implements OnInit {
   calc: CalcModule;
 
   constructor() {
-    this.operation = 'Hello World!';
+    this.operation = '13 2 + 7 /';
     this.calc = new CalcModule();
   }
 

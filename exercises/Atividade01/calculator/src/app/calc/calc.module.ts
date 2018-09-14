@@ -11,45 +11,51 @@ import { isNumber } from 'util';
 })
 export class CalcModule {
 
-  let stack: number[];
+  stack: number[];
 
   constructor() {
     this.stack = [];
   }
 
   processRPN(operator: string): number {
-    let aux: string;
-    let array: string[];
+    let array: string[] = [];
     let lastIndex: number = 0;
     let result: number;
 
-    for (let i = 0; i < operator.length; i++) {
-      array.push(operator.charAt(i));
+    for (let index = 0; index < operator.length; index++) {
+      array.push(operator.charAt(index));
     }
 
-    for (const element of array) {
-      if (element === ' ') {
-          this.stack.push(parseInt(operator.substring(lastIndex, (element - 1)));
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] === " ") {
+        
+        let aux = operator.substring(lastIndex, i);
+
+        if (!isNaN(parseInt(aux))) {
+          this.stack.push(parseInt(aux));
+          lastIndex = i + 1;
+        }
       } else {
         if (this.stack.length > 1) {
-          switch (element) {
-            case '+': {
+          switch (array[i]) {
+            case "+": {
               result = this.sum();
               this.stack.push(result);
+              lastIndex += 2;
               break;
             }
-            case '-': {
+            case "-": {
               result = this.sub();
               this.stack.push(result);
               break;
             }
-            case '*': {
+            case "*": {
               result = this.mult();
               this.stack.push(result);
               break;
             }
-            case '/': {
-              result = this.sub();
+            case "/": {
+              result = this.div();
               this.stack.push(result);
               break;
             }
@@ -86,13 +92,12 @@ export class CalcModule {
   }
 
   div(): number {
-    const number1 = this.stack.pop();
     const number2 = this.stack.pop();
+    const number1 = this.stack.pop();
     if (number2 > 0) {
-      this.stack.forEach(() => this.stack.pop());
       return number1 / number2;
     }
-    console.log('Division by \'0\' is not supported');
+    console.log('Division by 0 is not supported');
     return NaN;
   }
  }
