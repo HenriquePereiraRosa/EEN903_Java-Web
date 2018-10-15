@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Item Detail</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label> Title </ion-label>
+    <ion-input placeholder="Enter the title!" 
+      [(ngModel)]="item.title"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label> Description </ion-label>
+    <ion-input placeholder="Enter the description!" 
+      [(ngModel)]="item.description"></ion-input>
+  </ion-item>
+</ion-content>

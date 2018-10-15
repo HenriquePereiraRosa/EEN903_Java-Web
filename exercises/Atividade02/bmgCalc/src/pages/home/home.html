@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      BMC Calculator
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Height</ion-label>
+      <ion-input type="text" value="" [(ngModel)]="height"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Weight</ion-label>
+      <ion-input type="text" value="" [(ngModel)]="weight"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <div padding>
+    <button ion-button (click)="doCalc()">Calc</button>
+  </div>
+  <div padding>
+    <ion-item>
+      <ion-label floating>Result</ion-label>
+      <ion-input type="text" value="" [(ngModel)]="bmc"></ion-input>
+    </ion-item>
+  </div>
+</ion-content>
