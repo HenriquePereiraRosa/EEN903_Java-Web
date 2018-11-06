@@ -18,5 +18,3 @@
 - Bruno Veiga______________________ 13.04502-4
 
 - Gabriel Cabral Paiva_____________ 15.95033-6
-
-- Caio Andreucci
